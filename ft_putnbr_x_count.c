@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	ft_putnbr_x_count(unsigned int n)
+int	ft_putnbr_x_count(unsigned long long n)
 {
 	int count;
 

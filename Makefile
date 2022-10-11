@@ -1,6 +1,6 @@
 FLAGS = -Wall -Werror -Wextra
 NAME = libftprintf.a
-SRCS = ft_printf.c ft_putchar_count.c ft_putnbr_d_count.c ft_putnbr_u_count.c ft_putnbr_ux_count.c ft_putnbr_x_count.c ft_putstr_count.c
+SRCS = ft_printf.c ft_putchar_count.c ft_putnbr_d_count.c ft_putnbr_u_count.c ft_putnbr_ux_count.c ft_putnbr_x_count.c ft_putstr_count.c ft_pointer_count.c
 
 OBJS = $(SRCS:.c=.o)
 
