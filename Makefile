@@ -1,42 +1,23 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/31 17:25:19 by ktunchar          #+#    #+#              #
-#    Updated: 2022/10/11 22:56:33 by ktunchar         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
+FLAGS = -Wall -Werror -Wextra
 NAME = libftprintf.a
+SRCS = ft_printf.c ft_putchar_count.c ft_putnbr_d_count.c ft_putnbr_u_count.c ft_putnbr_ux_count.c ft_putnbr_x_count.c
 
-SRCS = ft_printf.c ft_putchar_count.c ft_putnbr_d_count.c ft_putnbr_o_count.c ft_putnbr_ux_count.c ft_putnbr_x_count.c
-
-OBJS := $(SRCS:.c=.o)
-
-BONUS	= 
-
-BONUS_OBJS = $(BONUS:%.c=%.o)
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-.c.o:
-	gcc -Wall -Wextra -Werror -c $< -o $(<:.c=.o)
-$(NAME): $(OBJS) $(BONUS_OBJS)
+%o:%c
+	gcc $(FLAGS) -c $< -o $@
+
+$(NAME): $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
+
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS)
+
 fclean: clean
 	rm -f $(NAME)
-re: fclean all clean
 
-bonus:	$(OBJS) $(BONUS_OBJS)
-		ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+re: fclean all
 
-unit :
-	(cd ./libft-unit-test && make f)
-test : unit fclean
-
-.PHONY: clean fclean all re bonus
+.PHONY: clean fclean re all

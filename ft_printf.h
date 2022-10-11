@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 20:35:53 by ktunchar          #+#    #+#             */
-/*   Updated: 2022/10/11 23:14:26 by ktunchar         ###   ########.fr       */
+/*   Updated: 2022/10/11 23:58:53 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@
 int ft_printf(const char *str, ...);
 int ft_putchar_count(char c);
 int ft_putnbr_d_count(int n);
-int	ft_putnbr_o_count(int n);
-int	ft_putnbr_x_count(int n);
-int	ft_putnbr_ux_count(int n);
+int	ft_putnbr_x_count(unsigned int n);
+int	ft_putnbr_ux_count(unsigned int n);
 int	ft_putnbr_u_count(unsigned int n);
 
 #endif

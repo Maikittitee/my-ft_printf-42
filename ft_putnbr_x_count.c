@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	ft_putnbr_x_count(int n)
+int	ft_putnbr_x_count(unsigned int n)
 {
 	int count;
 
@@ -14,9 +14,4 @@ int	ft_putnbr_x_count(int n)
 		count += ft_putnbr_x_count(n % 16);
 	}
 	return (count);
-}
-
-int	main()
-{
-	printf("\nreturn is %d\n",ft_putnbr_x_count(10));
 }

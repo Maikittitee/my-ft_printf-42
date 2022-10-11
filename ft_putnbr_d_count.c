@@ -27,9 +27,3 @@ int ft_putnbr_d_count(int n)
 	}
     return (count);
 }
-/*
-int main()
-{
-    printf("\n%d\n",ft_putnbr_d_count(-2147483648));
-}
-*/

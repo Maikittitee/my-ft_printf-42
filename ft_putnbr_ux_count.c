@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	ft_putnbr_ux_count(int n)
+int	ft_putnbr_ux_count(unsigned int n)
 {
 	int count;
 
@@ -15,8 +15,3 @@ int	ft_putnbr_ux_count(int n)
 	}
 	return (count);
 }
-/*
-int	main()
-{
-	printf("\nreturn is %d\n",ft_putnbr_x_count(10));
-}*/

@@ -1,4 +1,4 @@
-#include "ft_printf.c"
+#include "ft_printf.h"
 
 int	ft_putnbr_u_count(unsigned int n)
 {
