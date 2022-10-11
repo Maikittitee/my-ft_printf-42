@@ -6,11 +6,11 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 20:39:29 by ktunchar          #+#    #+#             */
-/*   Updated: 2022/10/11 17:37:12 by ktunchar         ###   ########.fr       */
+/*   Updated: 2022/10/11 23:19:06 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int  check_percent(char s, va_list args)
 {
@@ -19,6 +19,16 @@ static int  check_percent(char s, va_list args)
 	count = 0;
     if (s == 'c')
 		count += ft_putchar_count(va_arg(args,int));
+    if (s == 'd' || s == 'i')
+		count += ft_putnbr_d_count(va_arg(args,int));
+    if (s == 'x')
+		count += ft_putnbr_x_count(va_arg(args,int));
+    if (s == 'X')
+		count += ft_putnbr_ux_count(va_arg(args,int));
+    if (s == 'u')
+		count += ft_putnbr_u_count(va_arg(args,int));
+    if (s == '%')
+        count += ft_putchar_count('%');
 	return (count);
 
 }
@@ -49,13 +59,13 @@ int ft_printf(const char *str, ...)
     } 
     return (count);
 }
-/*
+
 int main()
 {
     //printf("\n%d\n",ft_printf("Hello"));
-    printf("\nreturn value : %d\n",ft_printf("my alpha is %c \n%c",'a','b'));
-	printf("-----------------\n");
-    printf("\nreturn value is : %d\n",printf("my alpha is %c \n%c",'a','b'));
+    // printf("\nreturn value : %d\n",ft_printf("%d\n",2));
+	// printf("-----------------\n");
+    // printf("\nreturn value is : %d\n",printf("%d\n",2));
+    printf("%%");
 	
 }
-*/
