@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 20:39:29 by ktunchar          #+#    #+#             */
-/*   Updated: 2022/10/11 23:59:17 by ktunchar         ###   ########.fr       */
+/*   Updated: 2022/10/12 00:15:01 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static int  check_percent(char s, va_list args)
 	count = 0;
      if (s == 'c')
 	 	count += ft_putchar_count(va_arg(args,int));
+    if (s == 's')
+        count += ft_putstr_count(va_arg(args,char*));
     if (s == 'd' || s == 'i')
 		count += ft_putnbr_d_count(va_arg(args,int));
     if (s == 'x')
