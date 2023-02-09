@@ -12,25 +12,25 @@
 
 #include "ft_printf.h"
 
-static int	check_percent(char s, va_list args)
+static int	check_percent(char s, va_list *args)
 {
 	int	count;
 
 	count = 0;
 	if (s == 'c')
-		count += ft_putchar_count(va_arg(args, int));
+		count += ft_putchar_count(va_arg(*args, int));
 	if (s == 's')
-		count += ft_putstr_count(va_arg(args, char *));
+		count += ft_putstr_count(va_arg(*args, char *));
 	if (s == 'p')
-		count += ft_pointer_count(va_arg(args, unsigned long long));
+		count += ft_pointer_count(va_arg(*args, unsigned long long));
 	if (s == 'd' || s == 'i')
-		count += ft_putnbr_d_count(va_arg(args, int));
+		count += ft_putnbr_d_count(va_arg(*args, int));
 	if (s == 'x')
-		count += ft_putnbr_x_count(va_arg(args, unsigned int));
+		count += ft_putnbr_x_count(va_arg(*args, unsigned int));
 	if (s == 'X')
-		count += ft_putnbr_ux_count(va_arg(args, unsigned int));
+		count += ft_putnbr_ux_count(va_arg(*args, unsigned int));
 	if (s == 'u')
-		count += ft_putnbr_u_count(va_arg(args, unsigned int));
+		count += ft_putnbr_u_count(va_arg(*args, unsigned int));
 	if (s == '%')
 		count += ft_putchar_count('%');
 	return (count);
@@ -49,7 +49,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			count += check_percent(str[i + 1], args);
+			count += check_percent(str[i + 1], &args);
 			i++;
 		}
 		else
@@ -65,12 +65,7 @@ int	ft_printf(const char *str, ...)
 /*
 int main()
 {
-    //printf("\n%d\n",ft_printf("Hello"));
-    // printf("\nreturn value : %d\n",ft_printf("%d\n",2));
-	// printf("-----------------\n");
-    // printf("\nreturn value is : %d\n",printf("%d\n",2));
-    printf("%%");
-
+    ft_printf("My name is %s, %d \n","Mai",18);
     return (0);
 	
-}*/
+} */
